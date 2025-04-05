@@ -4,15 +4,15 @@
       <div class="data-table__summary-card">
         <div class="data-table__summary-title">N° ENTRADA / CANTIDAD</div>
         <div class="data-table__summary-value">
-          <span class="data-table__summary-count">{{ entradasCount }}</span>
-          <span class="data-table__summary-weight">/{{ entradasWeight }} kg</span>
+          <span class="data-table__summary-count">{{ entriesCount }}</span>
+          <span class="data-table__summary-weight">/{{ entriesWeight }} kg</span>
         </div>
       </div>
       <div class="data-table__summary-card">
         <div class="data-table__summary-title">N° SALIDAS / CANTIDAD</div>
         <div class="data-table__summary-value">
-          <span class="data-table__summary-count">{{ salidasCount }}</span>
-          <span class="data-table__summary-weight">/{{ salidasWeight }} kg</span>
+          <span class="data-table__summary-count">{{ exitsCount }}</span>
+          <span class="data-table__summary-weight">/{{ exitsWeight }} kg</span>
         </div>
       </div>
       <div class="data-table__export">
@@ -49,20 +49,20 @@
       <ng-template pTemplate="body" let-item>
         <tr>
           <td><p-tableCheckbox [value]="item"></p-tableCheckbox></td>
-          <td>{{ item.referencia }}</td>
+          <td>{{ item.reference }}</td>
           <td>
-            <span class="data-table__badge" [ngClass]="'data-table__badge--' + item.tipo">
-              {{ item.tipo | uppercase }}
+            <span class="data-table__badge" [ngClass]="'data-table__badge--' + item.type">
+              {{ item.type | uppercase }}
             </span>
           </td>
-          <td>{{ item.fecha }}</td>
-          <td>{{ item.origen }}</td>
+          <td>{{ item.date }}</td>
+          <td>{{ item.origin }}</td>
           <td>{{ item.regenerable }}</td>
           <td>{{ item.ler }}</td>
-          <td>{{ item.cantidad }}</td>
-          <td>{{ item.oleado }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.oleoso }}</td>
           <td class="data-table__center-cell">
-            <span class="material-icons" *ngIf="item.pdfVinc">picture_as_pdf</span>
+            <span class="material-icons" *ngIf="item.pdf">picture_as_pdf</span>
           </td>
           <td class="data-table__center-cell">
             <div class="data-table__incidents">
