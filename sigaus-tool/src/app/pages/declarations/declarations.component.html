@@ -1,0 +1,71 @@
+<div class="declaraciones">
+  <!-- Breadcrumb -->
+  <div class="declaraciones__breadcrumb">
+    <span>Gestión</span>
+    <span class="declaraciones__breadcrumb-separator">></span>
+    <span>Declarantes</span>
+    <span class="declaraciones__breadcrumb-separator">></span>
+    <span class="declaraciones__breadcrumb-current">Ver detalle</span>
+  </div>
+  
+  <!-- Company header -->
+  <div class="declaraciones__header">
+    <div class="declaraciones__company">
+      <h1 class="declaraciones__company-name">EMPRESA PRUEBA</h1>
+      <div class="declaraciones__company-id">01234567L</div>
+    </div>
+    <div class="declaraciones__search">
+      <span class="material-icons">search</span>
+    </div>
+    <button pButton 
+            label="Nuevas Altas" 
+            icon="pi pi-plus" 
+            class="p-button-primary declaraciones__new-button">
+    </button>
+  </div>
+  
+  <!-- Tabs personalizadas -->
+  <div class="declaraciones__tabs">
+    <div class="declaraciones__tab" 
+         *ngFor="let tab of tabs; let i = index"
+         [class.declaraciones__tab--active]="activeTabIndex === i"
+         (click)="setActiveTab(i)">
+      {{ tab.header }}
+    </div>
+  </div>
+  
+  <!-- Contenido de la tab activa -->
+  <div class="declaraciones__tab-content">
+    <!-- Tab de Declaraciones -->
+    <div *ngIf="activeTabIndex === 0">
+      <app-filter-bar 
+        [years]="availableYears"
+        [months]="availableMonths"
+        (filterChanged)="applyFilters($event)">
+      </app-filter-bar>
+      
+      <app-data-table [data]="declaracionesData"></app-data-table>
+    </div>
+    
+    <!-- Otras tabs -->
+    <div *ngIf="activeTabIndex === 1">
+      <p>Contenido de Histórico de Archivos</p>
+    </div>
+    
+    <div *ngIf="activeTabIndex === 2">
+      <p>Contenido de Instalaciones Gestor</p>
+    </div>
+    
+    <div *ngIf="activeTabIndex === 3">
+      <p>Contenido de Incidencias</p>
+    </div>
+    
+    <div *ngIf="activeTabIndex === 4">
+      <p>Contenido de Financiación</p>
+    </div>
+    
+    <div *ngIf="activeTabIndex === 5">
+      <p>Contenido de Documentación</p>
+    </div>
+  </div>
+</div>

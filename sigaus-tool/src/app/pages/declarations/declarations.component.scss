@@ -1,0 +1,112 @@
+.declaraciones {
+  padding: 15px 20px;
+  
+  // Breadcrumb
+  &__breadcrumb {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 15px;
+    
+    &-separator {
+      margin: 0 5px;
+    }
+    
+    &-current {
+      color: #333;
+    }
+  }
+  
+  // Header
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  &__company {
+    flex: 1;
+    
+    &-name {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0;
+      color: #333;
+    }
+    
+    &-id {
+      font-size: 14px;
+      color: #666;
+    }
+  }
+  
+  &__search {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 20px;
+    cursor: pointer;
+    
+    .material-icons {
+      color: #666;
+      font-size: 20px;
+    }
+  }
+  
+  &__new-button {
+    background-color: #1976d2 !important;
+    border: none !important;
+    
+    &:hover {
+      background-color: #1565c0 !important;
+    }
+  }
+  
+  // Tabs
+  &__tabs {
+    display: flex;
+    background-color: #f5f5f5;
+    border-bottom: 0;
+  }
+  
+  &__tab {
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    color: #666;
+    font-size: 12px;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    cursor: pointer;
+    
+    &:first-child {
+      border-left: 1px solid #ddd;
+    }
+    
+    &:hover {
+      background-color: #eaeaea;
+    }
+    
+    &--active {
+      background-color: white;
+      color: #333;
+      font-weight: 500;
+      border-bottom: 1px solid white;
+      margin-bottom: -1px;
+      position: relative;
+    }
+  }
+  
+  &__tab-content {
+    border: 1px solid #ddd;
+    border-top: 0;
+    background-color: white;
+    padding: 20px;
+  }
+}
