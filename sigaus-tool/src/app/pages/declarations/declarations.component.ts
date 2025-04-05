@@ -10,7 +10,7 @@ interface Tab {
 }
 
 @Component({
-  selector: 'app-declaraciones',
+  selector: 'app-declarations',
   standalone: true,
   imports: [
     CommonModule,
@@ -21,7 +21,7 @@ interface Tab {
   templateUrl: './declarations.component.html',
   styleUrls: ['./declarations.component.scss']
 })
-export class DeclaracionesComponent {
+export class DeclarationsComponent {
   // Array de tabs
   tabs: Tab[] = [
     { header: 'DECLARACIONES' },
