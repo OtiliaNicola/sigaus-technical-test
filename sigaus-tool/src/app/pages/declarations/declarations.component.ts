@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { DataTableComponent } from '../../shared/data-table/data-table.component';
-import { FilterComponent } from '../../shared/filter/filter.component';
-
+import { GestionService } from '../../core/services/gestion.service';
+import { Declaration } from '../../core/interfaces/declaration.interface';
 
 interface Tab {
   header: string;
@@ -14,14 +14,15 @@ interface Tab {
   standalone: true,
   imports: [
     CommonModule,
-    FilterComponent,
     DataTableComponent,
+    
     ButtonModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './declarations.component.html',
   styleUrls: ['./declarations.component.scss']
 })
-export class DeclarationsComponent {
+export class DeclarationsComponent implements OnInit {
   // Array de tabs
   tabs: Tab[] = [
     { header: 'DECLARACIONES' },
@@ -40,23 +41,6 @@ export class DeclarationsComponent {
     this.activeTabIndex = index;
   }
   
-  // Datos de ejemplo para la tabla
-  declaracionesData: any[] = [
-    {
-      id: 1,
-      referencia: 'Nuevo del año',
-      tipo: 'entrada',
-      fecha: '07/01/2025',
-      origen: 'ALBACETE',
-      regenerable: 'Regenerable',
-      ler: '130109',
-      cantidad: '681 kg',
-      oleado: '1',
-      pdfVinc: true
-    },
-    // Más datos...
-  ];
-  
   // Años y meses para filtros
   availableYears = [
     { label: '2023', value: 2023 },
@@ -67,12 +51,55 @@ export class DeclarationsComponent {
   availableMonths = [
     { label: 'Enero', value: 1 },
     { label: 'Febrero', value: 2 },
-    // Más meses...
+    { label: 'Marzo', value: 3 },
+    { label: 'Abril', value: 4 },
+    { label: 'Mayo', value: 5 },
+    { label: 'Junio', value: 6 },
+    { label: 'Julio', value: 7 },
+    { label: 'Agosto', value: 8 },
+    { label: 'Septiembre', value: 9 },
+    { label: 'Octubre', value: 10 },
+    { label: 'Noviembre', value: 11 },
+    { label: 'Diciembre', value: 12 }
   ];
-  
+
+  declarations: Declaration[] = []; // Variable para almacenar las declaraciones
+  loading = false; // Variable para mostrar el spinner de carga
+
+  constructor(
+    private readonly gestionService: GestionService
+  ) {}
+
+  ngOnInit(): void {
+    // Cargar las declaraciones al inicializar el componente
+    this.loadDeclarations();
+  }
+
+  loadDeclarations(): void {
+    this.loading = true;
+    
+    this.gestionService.getDeclarations().subscribe({
+      next: (response) => {
+        this.declarations = response;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Error al cargar declaraciones:', error);
+        this.loading = false;
+      }
+    });
+  }
+
   // Método para manejar cambios en los filtros
   applyFilters(filters: any): void {
     console.log('Aplicando filtros:', filters);
-    // Aquí iría la lógica de filtrado
+    this.gestionService.filterDeclarations(filters).subscribe({
+      next: (filteredData) => {
+        this.declarations = filteredData;
+      },
+      error: (error) => {
+        console.error('Error al filtrar declaraciones:', error);
+      }
+    });
   }
 }
