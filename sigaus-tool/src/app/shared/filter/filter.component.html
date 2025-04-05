@@ -1,0 +1,43 @@
+<div class="filter-bar">
+    <div class="filter-bar__group">
+      <label class="filter-bar__label">Filtrar</label>
+      <p-dropdown 
+        [options]="years" 
+        [(ngModel)]="selectedYear" 
+        (onChange)="onFilterChange()"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="2025"
+        styleClass="filter-bar__dropdown">
+      </p-dropdown>
+    </div>
+    
+    <div class="filter-bar__group">
+      <p-dropdown 
+        [options]="months" 
+        [(ngModel)]="selectedMonth" 
+        (onChange)="onFilterChange()"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Seleccione el mes"
+        styleClass="filter-bar__dropdown">
+      </p-dropdown>
+    </div>
+    
+    <div class="filter-bar__search">
+      <span class="material-icons filter-bar__search-icon">search</span>
+      <input 
+        type="text" 
+        pInputText 
+        [(ngModel)]="referenceNumber" 
+        (input)="onFilterChange()"
+        placeholder="Filtre por N° de referencia"
+        class="filter-bar__search-input">
+      <span 
+        *ngIf="referenceNumber" 
+        class="material-icons filter-bar__search-clear"
+        (click)="referenceNumber=''; onFilterChange()">
+        close
+      </span>
+    </div>
+  </div>
