@@ -5,7 +5,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
-  selector: 'app-filter-bar',
+  selector: 'app-filter',
   standalone: true,
   imports: [CommonModule, FormsModule, DropdownModule, InputTextModule],
   templateUrl: './filter.component.html',
