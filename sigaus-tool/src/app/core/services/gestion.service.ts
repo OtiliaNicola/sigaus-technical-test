@@ -81,10 +81,7 @@ export class GestionService {
 
   private calculateTotalWeight(declarations: Declaration[]): number {
     return declarations.reduce((total, item) => {
-      // Extraer el valor numérico del peso (ej: "888 kg" -> 888)
-      const match = item.quantity.toLowerCase().match(/(\d+)/);
-      const weight = match ? parseInt(match[1]) : 0;
-      return total + weight;
+      return total + item.quantity;
     }, 0);
   }
 
