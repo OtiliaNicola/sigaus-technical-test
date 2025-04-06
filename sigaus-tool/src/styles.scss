@@ -1,7 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+
+html {
+  @include mat.theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+} /* You can add global styles to this file, and also import other style files */
 @import "primeicons/primeicons.css";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 /* Reset básico */
 * {
@@ -10,26 +26,22 @@
   box-sizing: border-box;
 }
 
+html,
 body {
-  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   color: #333;
-  background-color: #f9f9f9;
-  min-width: 1200px;
+  margin: 0;
 }
 
 /* Variables CSS globales */
 :root {
-  --primary-color: #1976d2;
-  --accent-color: #e4af00;
-  --error-color: #f44336;
-  --success-color: #4caf50;
-  --warning-color: #ff9800;
-  --text-color: #333;
-  --text-secondary-color: #666;
-  --surface-color: #fff;
-  --surface-variant-color: #f5f5f5;
-  --border-color: #ddd;
+  --p-datatable-row-striped-background: #f5f4f1;
 }
 
 /* Utilidades comunes */
@@ -91,7 +103,7 @@ body {
 
 /* PrimeNG overrides */
 .p-component {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .p-button.p-button-primary {
@@ -133,7 +145,6 @@ body {
 }
 
 .p-datatable .p-datatable-tbody > tr > td {
-  padding: 0.75rem 1rem;
   border-width: 0 0 1px 0;
   border-color: #e0e0e0;
 }
@@ -142,10 +153,5 @@ body {
 @media (min-width: 1367px) {
   .main-content {
     padding: 0;
-  }
-  
-  .main-content > * {
-    max-width: 1200px;
-    margin: 0 auto;
   }
 }
