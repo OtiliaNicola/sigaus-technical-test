@@ -1,41 +1,41 @@
-<div class="declaraciones">
+<div class="declarations">
   <!-- Breadcrumb -->
-  <div class="declaraciones__breadcrumb">
+  <div class="declarations__breadcrumb">
     <span>Gestión</span>
-    <span class="declaraciones__breadcrumb-separator">></span>
+    <span class="declarations__breadcrumb-separator">></span>
     <span>Declarantes</span>
-    <span class="declaraciones__breadcrumb-separator">></span>
-    <span class="declaraciones__breadcrumb-current">Ver detalle</span>
+    <span class="declarations__breadcrumb-separator">></span>
+    <span class="declarations__breadcrumb-current">Ver detalle</span>
   </div>
   
   <!-- Company header -->
-  <div class="declaraciones__header">
-    <div class="declaraciones__company">
-      <h1 class="declaraciones__company-name">EMPRESA PRUEBA</h1>
-      <div class="declaraciones__company-id">01234567L</div>
+  <div class="declarations__header">
+    <div class="declarations__company">
+      <h1 class="declarations__company-name">EMPRESA PRUEBA</h1>
+      <div class="declarations__company-id">01234567L</div>
     </div>
-    <div class="declaraciones__search">
+    <div class="declarations__search">
       <span class="material-icons">search</span>
     </div>
     <button pButton 
             label="Nuevas Altas" 
             icon="pi pi-plus" 
-            class="p-button-primary declaraciones__new-button">
+            class="p-button-primary declarations__new-button">
     </button>
   </div>
   
   <!-- Tabs personalizadas -->
-  <div class="declaraciones__tabs">
-    <div class="declaraciones__tab" 
+  <div class="declarations__tabs">
+    <div class="declarations__tab" 
          *ngFor="let tab of tabs; let i = index"
-         [class.declaraciones__tab--active]="activeTabIndex === i"
+         [class.declarations__tab--active]="activeTabIndex === i"
          (click)="setActiveTab(i)">
       {{ tab.header }}
     </div>
   </div>
   
   <!-- Contenido de la tab activa -->
-  <div class="declaraciones__tab-content">
+  <div class="declarations__tab-content">
     <!-- Tab de Declaraciones -->
     <div *ngIf="activeTabIndex === 0">
       <app-filter

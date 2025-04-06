@@ -88,9 +88,7 @@ export class DeclarationsComponent implements OnInit {
   }
 
   // Método para manejar cambios en los filtros
-  applyFilters(filters: any): void {
-    console.log('Aplicando filtros:', filters);
-    
+  applyFilters(filters: any): void {    
     this.gestionService.filterDeclarations(filters).subscribe({
       next: (filteredData) => {
         this.declarations = filteredData;

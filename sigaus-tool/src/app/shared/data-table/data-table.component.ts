@@ -57,11 +57,11 @@ export class DataTableComponent {
   }
 
   // Función auxiliar para extraer el peso de un string como "100 kg"
-  private extractWeight(cantidad: string): number {
-    if (!cantidad) return 0;
-    const match = cantidad.toLowerCase().match(/(\d+)/);
-    return match ? parseInt(match[1]) : 0;
-  }
+  // private extractWeight(cantidad: string): number {
+  //   if (!cantidad) return 0;
+  //   const match = cantidad.toLowerCase().match(/(\d+)/);
+  //   return match ? parseInt(match[1]) : 0;
+  // }
 
   // Método para exportar a Excel
   exportToExcel(): void {

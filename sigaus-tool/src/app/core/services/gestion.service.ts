@@ -4,16 +4,12 @@ import { map, Observable } from 'rxjs';
 import { Declaration } from '../interfaces/declaration.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GestionService {
-
   private mocksUrl = 'assets/mocks/';
-  // Datos de ejemplo para la tabla de declaraciones
 
-  constructor(
-    private readonly http: HttpClient
-  ) {}
+  constructor(private readonly http: HttpClient) {}
 
   getDeclarations(): Observable<Declaration[]> {
     // Simulación de una llamada HTTP para obtener datos de declaraciones
@@ -22,20 +18,20 @@ export class GestionService {
 
   filterDeclarations(filters: any): Observable<Declaration[]> {
     return this.getDeclarations().pipe(
-      map(response => {
+      map((response) => {
         let filteredData = [...response];
-        
+
         // Filtrar por referencia
         if (filters.reference) {
           const searchTerm = filters.reference.toLowerCase();
-          filteredData = filteredData.filter(item => 
+          filteredData = filteredData.filter((item) =>
             item.reference.toLowerCase().includes(searchTerm)
           );
         }
-        
+
         // Filtrar por mes (extrayendo el mes de la fecha)
         if (filters.month) {
-          filteredData = filteredData.filter(item => {
+          filteredData = filteredData.filter((item) => {
             const dateParts = item.date.split('/');
             if (dateParts.length >= 2) {
               const itemMonth = parseInt(dateParts[1]);
@@ -44,10 +40,10 @@ export class GestionService {
             return false;
           });
         }
-        
+
         // Filtrar por año (extrayendo el año de la fecha)
         if (filters.year) {
-          filteredData = filteredData.filter(item => {
+          filteredData = filteredData.filter((item) => {
             const dateParts = item.date.split('/');
             if (dateParts.length >= 3) {
               const itemYear = parseInt(dateParts[2]);
@@ -56,9 +52,7 @@ export class GestionService {
             return false;
           });
         }
-        
         return filteredData;
-        
       })
     );
   }
@@ -67,15 +61,15 @@ export class GestionService {
     entries: { count: number; weight: number };
     exits: { count: number; weight: number };
   } {
-    const entries = declarations.filter(item => item.type === 'ENTRADA');
-    const exits = declarations.filter(item => item.type === 'SALIDA');
-    
+    const entries = declarations.filter((item) => item.type === 'ENTRADA');
+    const exits = declarations.filter((item) => item.type === 'SALIDA');
+
     const entriesWeight = this.calculateTotalWeight(entries);
     const exitsWeight = this.calculateTotalWeight(exits);
-    
+
     return {
       entries: { count: entries.length, weight: entriesWeight },
-      exits: { count: exits.length, weight: exitsWeight }
+      exits: { count: exits.length, weight: exitsWeight },
     };
   }
 
@@ -86,7 +80,6 @@ export class GestionService {
   }
 
   exportToExcel(declarations: Declaration[]): void {
-    console.log('Exportando a Excel:', declarations);
     alert('Función de exportación a Excel (simulada)');
   }
 }
