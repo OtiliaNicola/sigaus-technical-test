@@ -1,81 +1,185 @@
 <div class="data-table">
-    <!-- Summary cards -->
-    <div class="data-table__summary">
-      <div class="data-table__summary-card">
-        <div class="data-table__summary-title">N° ENTRADA / CANTIDAD</div>
-        <div class="data-table__summary-value">
-          <span class="data-table__summary-count">{{ entriesCount }}</span>
-          <span class="data-table__summary-weight">/{{ entriesWeight }} kg</span>
-        </div>
-      </div>
-      <div class="data-table__summary-card">
-        <div class="data-table__summary-title">N° SALIDAS / CANTIDAD</div>
-        <div class="data-table__summary-value">
-          <span class="data-table__summary-count">{{ exitsCount }}</span>
-          <span class="data-table__summary-weight">/{{ exitsWeight }} kg</span>
-        </div>
-      </div>
-      <div class="data-table__export">
-        <span class="material-icons">file_download</span>
-        <span>Exportar todas las declaraciones a Excel</span>
+  <!-- Summary cards -->
+  <div class="data-table__summary">
+    <div class="data-table__summary-card">
+      <div class="data-table__summary-title">N° ENTRADAS /<br>CANTIDAD</div>
+      <div class="data-table__summary-value">
+        <span class="data-table__summary-count">{{ entriesCount }}/</span>
+        <span class="data-table__summary-weight">{{ entriesWeight }} kg</span>
       </div>
     </div>
-  
-    <!-- Table -->
-    <p-table 
-      [value]="data" 
-      [(selection)]="selectedDeclarations"
-      dataKey="id"
-      [paginator]="true" 
-      [rows]="10" 
-      [rowHover]="true"
-      styleClass="data-table__table">
-      <ng-template pTemplate="header">
-        <tr>
-          <th style="width: 4rem">
-            <p-tableHeaderCheckbox />
-          </th>
-          <th pSortableColumn="reference">N° REFERENCIA <p-sortIcon field="reference"></p-sortIcon></th>
-          <th pSortableColumn="type">TIPO <p-sortIcon field="type"></p-sortIcon></th>
-          <th pSortableColumn="date">FECHA <p-sortIcon field="date"></p-sortIcon></th>
-          <th pSortableColumn="origin">ORIGEN (PROVINCIA) <p-sortIcon field="origin"></p-sortIcon></th>
-          <th pSortableColumn="regenerable">REGENERABLE <p-sortIcon field="regenerable"></p-sortIcon></th>
-          <th pSortableColumn="ler">LER <p-sortIcon field="ler"></p-sortIcon></th>
-          <th pSortableColumn="quantity">CANTIDAD <p-sortIcon field="quantity"></p-sortIcon></th>
-          <th pSortableColumn="oleoso">N° OLEADO <p-sortIcon field="oleoso"></p-sortIcon></th>
-          <th>PDF VINC.</th>
-          <th>INCIDENCIAS</th>
-          <th>ACCIONES</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-item>
-        <tr>
-          <td><p-tableCheckbox [value]="item" /></td>
-          <td>{{ item.reference }}</td>
-          <td>
-            <span class="data-table__badge" [ngClass]="'data-table__badge--' + item.type">
-              {{ item.type | uppercase }}
-            </span>
-          </td>
-          <td>{{ item.date }}</td>
-          <td>{{ item.origin }}</td>
-          <td>{{ item.regenerable }}</td>
-          <td>{{ item.ler }}</td>
-          <td>{{ item.quantity }} kg</td>
-          <td>{{ item.oleoso }}</td>
-          <td class="data-table__center-cell">
-            <span class="material-icons" *ngIf="item.pdf">picture_as_pdf</span>
-          </td>
-          <td class="data-table__center-cell">
-            <div class="data-table__incidents">
-              <span class="data-table__incident-dot">0</span>
-              <span class="data-table__incident-dot">0</span>
-            </div>
-          </td>
-          <td class="data-table__center-cell">
-            <button pButton icon="pi pi-ellipsis-v" class="p-button-text p-button-rounded"></button>
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
+    <div class="data-table__summary-card">
+      <div class="data-table__summary-title">N° SALIDAS /<br>CANTIDAD</div>
+      <div class="data-table__summary-value">
+        <span class="data-table__summary-count">{{ exitsCount }}/</span>
+        <span class="data-table__summary-weight">{{ exitsWeight }} kg</span>
+      </div>
+    </div>
+    <div class="data-table__export">
+      <i class="pi pi-sort-alt" style="font-size: 0.75rem"></i>
+      <span>Exportar todas las declaraciones a Excel</span>
+    </div>
   </div>
+
+  <!-- Table -->
+  <p-table
+    #dt
+    stripedRows
+    [value]="data"
+    [paginator]="true"
+    [rows]="10"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} declaraciones"
+    [rowHover]="true"
+    [(selection)]="selectedDeclarations"
+    dataKey="id"
+    styleClass="data-table__table"
+    selectionMode="single"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 4rem"><p-tableHeaderCheckbox /></th>
+        <th pSortableColumn="reference" style="font-size: 12px">
+          N° REFERENCIA
+          <p-sortIcon
+            class="icon-header"
+            field="reference"
+            style="font-size: 0.75rem"
+          ></p-sortIcon>
+        </th>
+        <th pSortableColumn="type" style="font-size: 12px">
+          TIPO <p-sortIcon class="icon-header" field="type"></p-sortIcon>
+        </th>
+        <th pSortableColumn="date" style="font-size: 12px">
+          FECHA <p-sortIcon class="icon-header" field="date"></p-sortIcon>
+        </th>
+        <th pSortableColumn="origin">
+          ORIGEN (PROVINCIA)
+          <p-sortIcon class="icon-header" field="origin"></p-sortIcon>
+        </th>
+        <th pSortableColumn="regenerable">
+          REGENERABLE
+          <p-sortIcon class="icon-header" field="regenerable"></p-sortIcon>
+        </th>
+        <th pSortableColumn="ler">
+          LER <p-sortIcon class="icon-header" field="ler"></p-sortIcon>
+        </th>
+        <th pSortableColumn="quantity">
+          CANTIDAD
+          <p-sortIcon class="icon-header" field="quantity"></p-sortIcon>
+        </th>
+        <th pSortableColumn="oleoso" class="text-center" style="font-size: 12px">
+          OLEOSO <p-sortIcon class="icon-header" field="oleoso"></p-sortIcon>
+        </th>
+        <th class="text-center">PDF VINC</th>
+        <th class="text-center">INCIDENCIAS</th>
+        <th>ACCIONES</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+      <tr>
+        <td><p-tableCheckbox [value]="item" /></td>
+        <td>{{ item.reference }}</td>
+        <td>
+          <span
+            class="data-table__badge"
+            [ngClass]="'data-table__badge--' + item.type"
+          >
+            {{ item.type | uppercase }}
+          </span>
+        </td>
+        <td>{{ item.date }}</td>
+        <td>{{ item.origin }}</td>
+        <td>{{ item.regenerable }}</td>
+        <td>{{ item.ler }}</td>
+        <td>{{ item.quantity }} kg</td>
+        <td  class="text-center">{{ item.oleoso }}</td>
+        <td>
+          <mat-icon
+            [ngClass]="{ 'icon-gray': !item.pdf }"
+            class="icon-center"
+            aria-hidden="false"
+            aria-label="PDF Vinc. icon"
+            fontIcon="file_present"
+          ></mat-icon>
+        </td>
+        <td class="data-table__center-cell">
+          <div class="data-table__incidents">
+            <mat-icon
+              [ngClass]="{ 'icon-gray': !item.pendingIncident }"
+              aria-hidden="false"
+              aria-label="pendingIncident icon"
+              fontIcon="notifications_active"
+            ></mat-icon
+            ><span>{{ item.pendingIncident }}</span>
+            <mat-icon
+              [ngClass]="{ 'icon-gray': !item.waitingIncident }"
+              aria-hidden="false"
+              aria-label="waitingIncident icon"
+              fontIcon="update"
+              class="update-icon"
+            ></mat-icon>
+            <span>{{ item.waitingIncident }}</span>
+          </div>
+        </td>
+        <td class="data-table__center-cell">
+          <button
+            pButton
+            icon="pi pi-ellipsis-v"
+            class="p-button-text p-button-rounded"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+      <div class="paginator-notifications">
+        <div class="paginator-notifications-items">
+          <div class="paginator-notification-item">
+            <mat-icon
+              aria-hidden="false"
+              aria-label="pendingIncident icon"
+              fontIcon="notifications_active"
+              class="pendingIncident"
+            ></mat-icon>
+            <span class="paginator-notification-label"
+              >Notificación pendiente</span
+            >
+          </div>
+          <div class="paginator-notification-item">
+            <mat-icon
+              color="white"
+              aria-hidden="false"
+              aria-label="waitingIncident icon"
+              fontIcon="update"
+              class="waitingIncident"
+            ></mat-icon>
+            <span class="paginator-notification-label"
+              >Notificación en espera</span
+            >
+          </div>
+        </div>
+        <div class="paginator-notifications-items">
+          <div class="paginator-notification-item">
+            <mat-icon
+              aria-hidden="false"
+              aria-label="PDF Vinc. icon"
+              fontIcon="file_present"
+            ></mat-icon>
+            <span class="paginator-notification-label">PDF vinc.</span>
+          </div>
+          <div class="paginator-notification-item">
+            <mat-icon
+              color="white"
+              aria-hidden="false"
+              aria-label="PDF Vinc. icon"
+              fontIcon="file_present"
+              ngClass="icon-gray"
+            ></mat-icon>
+            <span class="paginator-notification-label">PDF no vinc.</span>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-table>
+</div>
