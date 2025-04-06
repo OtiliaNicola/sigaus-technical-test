@@ -8,9 +8,10 @@
     "regenerable": "Regenerable",
     "ler": "130109",
     "quantity": 888,
-    "oleoso": "5",
-    "pdf": "",
-    "incident": "",
+    "oleoso": 5,
+    "pdf": true,
+    "pendingIncident": 0,
+    "waitingIncident": 0,
     "actions": ""
   },
   {
@@ -22,9 +23,10 @@
     "regenerable": "Regenerable",
     "ler": "130109",
     "quantity": 222,
-    "oleoso": "1",
-    "pdf": "",
-    "incident": "",
+    "oleoso": 1,
+    "pdf": false,
+    "pendingIncident": 0,
+    "waitingIncident": 0,
     "actions": ""
   },
   {
@@ -36,9 +38,10 @@
     "regenerable": "Regenerable",
     "ler": "130110",
     "quantity": 141,
-    "oleoso": "100",
-    "pdf": "",
-    "incident": "",
+    "oleoso": 100,
+    "pdf": false,
+    "pendingIncident": 0,
+    "waitingIncident": 0,
     "actions": ""
   },
   {
@@ -50,9 +53,10 @@
     "regenerable": "Regenerable",
     "ler": "130111",
     "quantity": 222,
-    "oleoso": "11",
-    "pdf": "",
-    "incident": "",
+    "oleoso": 11,
+    "pdf": false,
+    "pendingIncident": 0,
+    "waitingIncident": 0,
     "actions": ""
   },
   {
@@ -64,9 +68,10 @@
     "regenerable": "Regenerable",
     "ler": "130204",
     "quantity": 44,
-    "oleoso": "7",
-    "pdf": "",
-    "incident": "",
+    "oleoso": 7,
+    "pdf": false,
+    "pendingIncident": 0,
+    "waitingIncident": 0,
     "actions": ""
   },
   {
@@ -78,9 +83,10 @@
     "regenerable": "Regenerable",
     "ler": "130109",
     "quantity": 123,
-    "oleoso": "5.5",
-    "pdf": "",
-    "incident": "",
+    "oleoso": 5.5,
+    "pdf": false,
+    "pendingIncident": 0,
+    "waitingIncident": 0,
     "actions": ""
   },
   {
@@ -92,9 +98,10 @@
     "regenerable": "Regenerable",
     "ler": "120107",
     "quantity": 120,
-    "oleoso": "50",
-    "pdf": "",
-    "incident": "",
+    "oleoso": 50,
+    "pdf": false,
+    "pendingIncident": 0,
+    "waitingIncident": 0,
     "actions": ""
   },
   {
@@ -106,9 +113,10 @@
     "regenerable": "Regenerable",
     "ler": "130111",
     "quantity": 33,
-    "oleoso": "44",
-    "pdf": "",
-    "incident": "",
+    "oleoso": 44,
+    "pdf": false,
+    "pendingIncident": 0,
+    "waitingIncident": 0,
     "actions": ""
   },
   {
@@ -120,9 +128,10 @@
     "regenerable": "Regenerable",
     "ler": "130110",
     "quantity": 222,
-    "oleoso": "22",
-    "pdf": "",
-    "incident": "",
+    "oleoso": 22,
+    "pdf": false,
+    "pendingIncident": 0,
+    "waitingIncident": 0,
     "actions": ""
   },
   {
@@ -134,9 +143,10 @@
     "regenerable": "Regenerable",
     "ler": "130109",
     "quantity": 11,
-    "oleoso": "1",
-    "pdf": "",
-    "incident": "",
+    "oleoso": 1,
+    "pdf": false,
+    "pendingIncident": 0,
+    "waitingIncident": 0,
     "actions": ""
   },
   {
@@ -148,9 +158,10 @@
     "regenerable": "Regenerable",
     "ler": "130109",
     "quantity": 52,
-    "oleoso": "",
-    "pdf": "",
-    "incident": "",
+    "oleoso": 5,
+    "pdf": false,
+    "pendingIncident": 0,
+    "waitingIncident": 0,
     "actions": ""
   },
   {
@@ -162,9 +173,10 @@
     "regenerable": "Regenerable",
     "ler": "130109",
     "quantity": 48,
-    "oleoso": "",
-    "pdf": "",
-    "incident": "",
+    "oleoso": 7,
+    "pdf": false,
+    "pendingIncident": 0,
+    "waitingIncident": 0,
     "actions": ""
   },
   {
@@ -176,9 +188,10 @@
     "regenerable": "Regenerable",
     "ler": "130109",
     "quantity": 51,
-    "oleoso": "",
-    "pdf": "",
-    "incident": "",
+    "oleoso": 9,
+    "pdf": false,
+    "pendingIncident": 0,
+    "waitingIncident": 0,
     "actions": ""
   }
 ]
