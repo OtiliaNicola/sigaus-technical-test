@@ -6,7 +6,7 @@ export interface Declaration {
     origin: string;
     regenerable: string;
     ler: string;
-    quantity: string;
+    quantity: number;
     oleoso: string;
     pdf: string;
     incident: string;
