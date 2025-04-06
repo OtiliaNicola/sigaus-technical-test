@@ -4,6 +4,8 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { Declaration } from '../../core/interfaces/declaration.interface';
 import { GestionService } from '../../core/services/gestion.service';
+import { FormsModule } from '@angular/forms';
+/* import { CheckboxModule } from 'primeng/checkbox'; */
 
 @Component({
   selector: 'app-data-table',
@@ -20,6 +22,8 @@ export class DataTableComponent {
   entriesWeight = 0;
   exitsCount = 0;
   exitsWeight = 0;
+
+  selectedDeclarations!: Declaration;
 
   constructor(private gestionService: GestionService) {}
 
@@ -39,7 +43,7 @@ export class DataTableComponent {
     const entries = this.data.filter((item) => item.type === 'ENTRADA');
     this.entriesCount = entries.length;
     this.entriesWeight = entries.reduce(
-      (sum, item) => sum + this.extractWeight(item.quantity),
+      (sum, item) => sum + item.quantity,
       0
     );
 
@@ -47,7 +51,7 @@ export class DataTableComponent {
     const exits = this.data.filter((item) => item.type === 'SALIDA');
     this.exitsCount = exits.length;
     this.exitsWeight = exits.reduce(
-      (sum, item) => sum + this.extractWeight(item.quantity),
+      (sum, item) => sum + item.quantity,
       0
     );
   }
