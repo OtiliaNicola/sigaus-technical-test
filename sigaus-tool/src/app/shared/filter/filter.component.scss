@@ -1,61 +1,97 @@
 .filter-bar {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  
+  &__group {
     display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  &__label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  &__dropdown {
+    min-width: 150px;
+  }
+  
+  &__search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0 10px;
+    height: 40px; // Fixed height to match dropdowns
     
-    &__group {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
+    &-icon {
+      color: #999;
+      font-size: 20px;
+      margin-right: 10px;
     }
     
-    &__label {
-      font-size: 12px;
-      color: #666;
-    }
-    
-    &__search {
+    &-input {
       flex: 1;
+      border: none !important;
+      outline: none !important;
+      padding: 8px 0 !important;
+      box-shadow: none !important;
+      font-size: 14px;
+      
+      &:focus {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+    }
+    
+    &-clear {
+      color: #999;
+      font-size: 18px;
+      cursor: pointer;
+      
+      &:hover {
+        color: #666;
+      }
+    }
+  }
+}
+
+:host ::ng-deep {
+  .filter-bar__dropdown {
+    .p-dropdown {
+      min-width: 150px;
+      height: 40px;
+    }
+    
+    .p-dropdown-label {
+      padding-right: 0;
       display: flex;
       align-items: center;
-      background-color: white;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      padding: 0 10px;
-      
-      &-icon {
-        color: #999;
-        font-size: 20px;
-        margin-right: 10px;
-      }
-      
-      &-input {
-        flex: 1;
-        border: none !important;
-        outline: none !important;
-        padding: 8px 0 !important;
-        box-shadow: none !important;
-        
-        &:focus {
-          outline: none !important;
-          box-shadow: none !important;
-        }
-      }
-      
-      &-clear {
-        color: #999;
-        font-size: 18px;
-        cursor: pointer;
-        
-        &:hover {
-          color: #666;
-        }
-      }
+      font-size: 14px;
     }
   }
   
-  :host ::ng-deep {
-    .filter-bar__dropdown {
-      min-width: 150px;
+  .p-inputtext {
+    border: none;
+  }
+  
+  // Fix dropdown height to match screenshot
+  .p-dropdown {
+    min-height: 40px;
+    
+    .p-dropdown-label {
+      display: flex;
+      align-items: center;
     }
   }
+  
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+    padding: 0.75rem 1.25rem;
+    font-size: 14px;
+  }
+}
