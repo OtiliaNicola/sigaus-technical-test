@@ -122,8 +122,7 @@
   .p-paginator {
     border-top: 1px solid #e0e0e0;
     padding: 8px 16px;
-    justify-content: space-between;
-    margin-left: 350px;
+    justify-content: flex-end;
     background-color: transparent;
 
     .p-paginator-content-end {
