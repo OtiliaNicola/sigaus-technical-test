@@ -8,6 +8,7 @@ import { FilterComponent } from '../../shared/filter/filter.component';
 
 interface Tab {
   header: string;
+  records?: number;
 }
 
 @Component({
@@ -23,7 +24,7 @@ export class DeclarationsComponent implements OnInit {
   tabs: Tab[] = [
     { header: 'DECLARACIONES' },
     { header: 'HISTÓRICO DE ARCHIVOS' },
-    { header: 'INSTALACIONES GESTOR' },
+    { header: 'INSTALACIONES GESTOR', records: 1670 },
     { header: 'INCIDENCIAS' },
     { header: 'FINANCIACIÓN' },
     { header: 'DOCUMENTACIÓN' },

@@ -1,6 +1,6 @@
 <div class="declarations">
   <!-- Breadcrumb -->
-  <div class="declarations__breadcrumb">
+  <div class="declarations__breadcrumb declarations__breadcrumb--desktop">
     <span>Gestión</span>
     <span class="declarations__breadcrumb-separator">></span>
     <span>Declarantes</span>
@@ -9,13 +9,17 @@
   </div>
   
   <!-- Company header -->
-  <div class="declarations__header">
+  <div class="declarations__header declarations__view--desktop">
     <div class="declarations__company">
-      <h1 class="declarations__company-name">EMPRESA PRUEBA</h1>
-      <div class="declarations__company-id">01234567L</div>
-    </div>
-    <div class="declarations__search">
-      <span class="material-icons">search</span>
+      <div class="declarations__company-text">
+        <div class="declarations__company-logo">
+          <h1 class="declarations__company-name">EMPRESA PRUEBA</h1>
+          <div class="declarations__company-id">01234567L</div>
+        </div>
+        <div class="declarations__search">
+          <span class="material-icons">search</span>
+        </div>
+      </div>
     </div>
     <button pButton 
             label="Nuevas Altas" 
@@ -25,17 +29,18 @@
   </div>
   
   <!-- Tabs personalizadas -->
-  <div class="declarations__tabs">
+  <div class="declarations__tabs declarations__view--desktop">
     <div class="declarations__tab" 
          *ngFor="let tab of tabs; let i = index"
          [class.declarations__tab--active]="activeTabIndex === i"
          (click)="setActiveTab(i)">
+      <span *ngIf="tab.records">{{ tab.records }}</span>
       {{ tab.header }}
     </div>
   </div>
   
   <!-- Contenido de la tab activa -->
-  <div class="declarations__tab-content">
+  <div class="declarations__tab-content declarations__view--desktop">
     <!-- Tab de Declaraciones -->
     <div *ngIf="activeTabIndex === 0">
       <app-filter
