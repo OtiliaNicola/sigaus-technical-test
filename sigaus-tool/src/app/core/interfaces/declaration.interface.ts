@@ -7,8 +7,9 @@ export interface Declaration {
     regenerable: string;
     ler: string;
     quantity: number;
-    oleoso: string;
-    pdf: string;
-    incident: string;
+    oleoso: number;
+    pdf: boolean;
+    pendingIncident: number;
+    waitingIncident: number;
     actions: string;
 }
