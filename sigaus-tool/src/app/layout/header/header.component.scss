@@ -6,146 +6,145 @@
   background-color: white;
   gap: 10rem;
   border-bottom: 1px solid #eee;
+  margin: 10px;
+}
+
+/* Sección izquierda */
+.header__left-section {
+  flex: 0 0 auto;
+  margin-right: 30px;
+}
+
+.header__logo {
+  display: block;
+}
+
+.header__logo-image {
+  height: 30px;
+  width: auto;
+}
+
+/* Sección central */
+.header__center-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__nav {
+  display: block;
+}
+
+.header__nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__nav-link {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #555;
+  font-size: 12px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.header__nav-link:hover {
+  color: #000;
+}
+
+.header__nav-link--active {
+  color: #000;
+  border-bottom: 5px solid #c5b731;
+}
+
+/* Sección derecha */
+.header__right-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header__year-selector {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  padding: 5px 5px;
+}
+
+.header__year-selector-icon {
+  font-size: 16px;
+  color: #999;
+}
+
+.header__modules {
+  display: flex;
+  gap: 10px;
+}
+
+.header__module {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header__module-number {
+  font-size: 13px;
+  color: #555;
+}
+
+.header__module-name {
+  font-size: 10px;
+  color: #999;
+}
+
+.header__notifications {
+  display: flex;
+}
+
+.header__notification-badge {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 11px;
+  &--orange {
+    background-color: #ff7043;
   }
-  
-  /* Sección izquierda */
-  .header__left-section {
-    flex: 0 0 auto;
-    margin-right: 30px;
+  &--yellow {
+    background-color: #ffb74d;
   }
-  
-  .header__logo {
-    display: block;
-  }
-  
-  .header__logo-image {
-    height: 30px;
-    width: auto;
-  }
-  
-  /* Sección central */
-  .header__center-section {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    gap: 10px;  
-  }
-  
-  .header__nav {
-    display: block;
-  }
-  
-  .header__nav-list {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
- 
-  
-  .header__nav-link {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #555;
-    font-size: 12px;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  
-  .header__nav-link:hover {
-    color: #000;
-  }
-  
-  .header__nav-link--active {
-    color: #000;
-    border-bottom: 3px solid #e4af00;
-  }
-  
-  /* Sección derecha */
-  .header__right-section {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .header__year-selector {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 14px;
-    color: #555;
-    cursor: pointer;
-    border: 1px solid #ddd;
-    padding: 5px 5px;
-  }
-  
-  .header__year-selector-icon {
-    font-size: 16px;
-    color: #999;
-  }
-  
-  .header__modules {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .header__module {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .header__module-number {
-    font-size: 13px;
-    color: #555;
-  }
-  
-  .header__module-name {
-    font-size: 10px;
-    color: #999;
-  }
-  
-  .header__notifications {
-    display: flex;
-  }
-  
-  .header__notification-badge {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 11px;
-     &--orange{
-      background-color: #ff7043;
-    }
-    &--yellow {
-      background-color: #ffb74d;
-    }
-  }
- 
-  
-  .header__user-profile {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .header__username {
-    font-size: 12px;
-    color: #555;
-  }
-  
-  .header__user-avatar {
-    width: 25px;
-    height: 30px;
-    background-color: #666;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 1px;
-    font-size: 16px;
-  }
+}
+
+.header__user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__username {
+  font-size: 12px;
+  color: #555;
+}
+
+.header__user-avatar {
+  width: 25px;
+  height: 30px;
+  background-color: #666;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1px;
+  font-size: 16px;
+}
