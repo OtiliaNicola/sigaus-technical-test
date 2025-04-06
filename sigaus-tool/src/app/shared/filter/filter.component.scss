@@ -1,96 +1,121 @@
 .filter-bar {
   display: flex;
-  gap: 15px;
-  margin-bottom: 20px;
-  
-  &__group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
+  align-items: center;
+  padding: 12px;
+  background-color: #E7E6E3;
+  gap: 12px;
   
   &__label {
-    font-size: 12px;
-    color: #666;
-    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+    margin-right: 0;
   }
   
+  &__dropdown-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
   &__dropdown {
-    min-width: 150px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    min-width: 180px;
+  }
+  &__clear-button {
+    position: absolute;
+    right: 30px;
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+
+    i {
+      font-size: 12px;
+    }
+    
+    &:hover {
+      color: #666;
+    }
+
+    &--search {
+      right: 10px;
+    }
   }
   
   &__search {
+    position: relative;
     flex: 1;
     display: flex;
     align-items: center;
     background-color: white;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 0 10px;
+    padding: 0 12px;
     height: 40px;
+    margin-left: 80px;
     
-    &-icon {
+    i {
       color: #999;
-      font-size: 20px;
-      margin-right: 10px;
+      margin-right: 8px;
+      font-size: 14px;
     }
     
     &-input {
       flex: 1;
       border: none !important;
-      outline: none !important;
       padding: 8px 0 !important;
       box-shadow: none !important;
-      font-size: 14px;
+      background: transparent !important;
       
       &:focus {
         outline: none !important;
         box-shadow: none !important;
       }
     }
-    
-    &-clear {
-      color: #999;
-      font-size: 18px;
-      cursor: pointer;
-      
-      &:hover {
-        color: #666;
-      }
-    }
   }
 }
 
 :host ::ng-deep {
-  .filter-bar__dropdown {
-    .p-dropdown {
-      min-width: 150px;
-      height: 40px;
-    }
+  .p-dropdown {
+    min-height: 40px;
+    background-color: white;
+
     
     .p-dropdown-label {
-      padding-right: 0;
-      display: flex;
-      align-items: center;
+      padding-top: 8px;
+      padding-bottom: 8px;
       font-size: 14px;
+    }
+    
+    .p-dropdown-trigger {
+      width: 2.5rem;
+    }
+    
+    .p-dropdown-clear-icon {
+      display: none;
     }
   }
   
   .p-inputtext {
-    border: none;
-  }
-  
-  .p-dropdown {
-    min-height: 40px;
-    
-    .p-dropdown-label {
-      display: flex;
-      align-items: center;
-    }
-  }
-  
-  .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
-    padding: 0.75rem 1.25rem;
     font-size: 14px;
+  }
+  
+  // Asegurar que los dropdowns tengan bordes claros
+  .p-dropdown {
+    border: 1px solid #ddd;
+  }
+  
+  // Alinear los elementos en la barra de filtros
+  .p-dropdown, .filter-bar__search {
+    height: 40px;
+    padding-right: 5px;
+  }
+  .p-select-dropdown .p-iconwrapper{
+    margin-left: 10px;
   }
 }

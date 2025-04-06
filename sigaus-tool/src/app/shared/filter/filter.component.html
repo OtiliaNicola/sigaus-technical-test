@@ -1,42 +1,60 @@
 <div class="filter-bar">
-  <div class="filter-bar__group">
-    <label class="filter-bar__label">Filtrar</label>
-    <p-dropdown 
-      [options]="years" 
-      [(ngModel)]="selectedYear" 
+  <div class="filter-bar__label">Filtrar</div>
+  <div class="filter-bar__dropdown-container">
+    <p-dropdown
+      [options]="years"
+      [(ngModel)]="selectedYear"
       (onChange)="onFilterChange()"
       optionLabel="label"
       optionValue="value"
-      styleClass="filter-bar__dropdown">
+      styleClass="filter-bar__dropdown"
+    >
     </p-dropdown>
+    <button
+      class="filter-bar__clear-button"
+      *ngIf="selectedYear"
+      (click)="clearYear()"
+    >
+      <i class="pi pi-times"></i>
+    </button>
   </div>
-  
-  <div class="filter-bar__group">
-    <p-dropdown 
-      [options]="months" 
-      [(ngModel)]="selectedMonth" 
+
+  <div class="filter-bar__dropdown-container">
+    <p-dropdown
+      [options]="months"
+      [(ngModel)]="selectedMonth"
       (onChange)="onFilterChange()"
       optionLabel="label"
       optionValue="value"
       placeholder="Seleccione el mes"
-      styleClass="filter-bar__dropdown">
+      styleClass="filter-bar__dropdown"
+    >
     </p-dropdown>
+    <button
+      class="filter-bar__clear-button"
+      
+      (click)="clearMonth()"
+    >
+      <i class="pi pi-times"></i>
+    </button>
   </div>
-  
+
   <div class="filter-bar__search">
-    <span class="material-icons filter-bar__search-icon">search</span>
-    <input 
-      type="text" 
-      pInputText 
-      [(ngModel)]="referenceNumber" 
+    <i class="pi pi-search"></i>
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="referenceNumber"
       (input)="onFilterChange()"
       placeholder="Filtre por N° de referencia"
-      class="filter-bar__search-input">
-    <span 
-      *ngIf="referenceNumber" 
-      class="material-icons filter-bar__search-clear"
-      (click)="clearReference()">
-      close
-    </span>
+      class="filter-bar__search-input"
+    />
+    <button
+      class="filter-bar__clear-button filter-bar__clear-button--search"
+     
+      (click)="clearReference()"
+    >
+      <i class="pi pi-times"></i>
+    </button>
   </div>
 </div>

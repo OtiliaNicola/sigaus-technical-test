@@ -16,7 +16,7 @@ export class FilterComponent implements OnInit {
   @Input() months: any[] = [];
   @Output() filterChanged = new EventEmitter<any>();
   
-  selectedYear: number = 2025; // Default to 2025
+  selectedYear: number = 2025;
   selectedMonth: number | null = null;
   referenceNumber: string = '';
 
@@ -31,6 +31,16 @@ export class FilterComponent implements OnInit {
       month: this.selectedMonth,
       reference: this.referenceNumber
     });
+  }
+
+  clearYear(): void {
+    this.selectedYear = 2025;
+    this.onFilterChange();
+  }
+
+  clearMonth(): void {
+    this.selectedMonth = null;
+    this.onFilterChange();
   }
 
   clearReference(): void {
