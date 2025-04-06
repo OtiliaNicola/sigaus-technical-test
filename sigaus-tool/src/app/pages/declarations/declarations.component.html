@@ -38,13 +38,13 @@
   <div class="declaraciones__tab-content">
     <!-- Tab de Declaraciones -->
     <div *ngIf="activeTabIndex === 0">
-      <app-filter-bar 
+      <app-filter
         [years]="availableYears"
         [months]="availableMonths"
         (filterChanged)="applyFilters($event)">
-      </app-filter-bar>
+      </app-filter>
       
-      <app-data-table [data]="declarations"></app-data-table>
+      <app-data-table [data]="declarations" [loading]="loading"></app-data-table>
     </div>
     
     <!-- Otras tabs -->
